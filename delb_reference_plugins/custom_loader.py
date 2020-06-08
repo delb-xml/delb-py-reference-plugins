@@ -9,5 +9,6 @@ from delb.typing import LoaderResult
 @plugin_manager.register_loader(before=text_loader)
 def remote_loader(source, config) -> LoaderResult:
     if isinstance(source, str) and source.startswith("remote://"):
+        config.source_url = source
         return text_loader(f'<document url="{source}"/>', config)
     return "The input value is not an URL with the remote scheme."
