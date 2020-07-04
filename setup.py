@@ -15,7 +15,7 @@ readme = ''
 setup(
     long_description=readme,
     name='delb-reference-plugins',
-    version='0.2b3',
+    version='0.2b4',
     description="A package with spare non-sense plugins for delb as developer's reference.",
     python_requires='>=3.6.0',
     author='Frank Sachsenheim',
@@ -25,5 +25,5 @@ setup(
     packages=['delb_reference_plugins'],
     package_dir={"": "."},
     package_data={},
-    install_requires=['delb==0.2b3'],
+    install_requires=['delb==0.2b4'],
 )

@@ -1,8 +1,8 @@
 # note that nothing is imported from the top-level delb module as it would trigger
 # the loading of plugins, yet the plugins in this module hasn't been registered yet
 
-from delb.plugins import plugin_manager
-from delb.utils import first
+from _delb.plugins import plugin_manager
+from _delb.utils import first
 
 
 @plugin_manager.register_document_extension
