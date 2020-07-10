@@ -13,33 +13,12 @@ def test_custom_loader():
 
 
 def test_header_properties():
-    document = Document("""<?xml version="1.0" encoding="UTF-8"?>
-    <document>
-        <header>
-            <authors>
-                <person>
-                    <name>
-                        <forename>
-                            Douglas
-                        </forename>
-                        <surname>
-                            Adams
-                        </surname>
-                    </name>                    
-                </person>
-            </authors>
-            <title>
-                <mainTitle>
-                    The Hitchhiker's Guide to the Galaxy
-                </mainTitle>
-            </title>        
-        </header>
-        <body/>
-    </document>
-    """)
+    document = Document(
+        "https://textgridlab.org/1.0/tgcrud-public/rest/textgrid:1265r.0/data"
+    )
 
-    assert document.title == "The Hitchhiker's Guide to the Galaxy"
-    assert document.authors == ["Douglas Adams"]
+    assert document.tei_header.title == "Das erste dadaistische Manifest"
+    assert document.tei_header.authors == ["Ball, Hugo"]
 
 
 if __name__ == "__main__":

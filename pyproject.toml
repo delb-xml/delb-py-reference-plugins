@@ -4,15 +4,15 @@ build-backend = "poetry.masonry.api"
 
 [tool.poetry]
 name = "delb-reference-plugins"
-version = "0.2b4"  # this shall match the delb version it relates to
+version = "0.2b5"  # this shall match the delb version it relates to
 description = "A package with spare non-sense plugins for delb as developer's reference."
 authors = ["Frank Sachsenheim <funkyfuture@riseup.net>"]
 license = "AGPL-3.0"
 
 [tool.poetry.dependencies]
-python = "~3.6"
-delb = "0.2b4"
+python = "^3.6"
+delb = { version = "0.2b5", extras = ["https-loader"] }
 
 [tool.poetry.plugins.delb]
 custom-loader = "delb_reference_plugins.custom_loader"
-header-properties = "delb_reference_plugins.header_properties"
+header-properties = "delb_reference_plugins.tei_header_properties"
