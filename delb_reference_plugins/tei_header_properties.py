@@ -8,6 +8,7 @@ from _delb.utils import first
 @plugin_manager.register_document_extension
 class TEIHeader(DocumentExtensionHooks):
     def _init_config(self, config_args):
+        super()._init_config(config_args)
         self.tei_header = TEIHeaderProperties(self)
 
 
