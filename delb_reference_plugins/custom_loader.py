@@ -1,5 +1,6 @@
-# note that nothing is imported from the top-level delb module as it would trigger
-# the loading of plugins, yet the plugins in this module hasn't been registered yet
+# note that nothing is imported from the top-level `delb` module as it would
+# trigger the loading of plugins, yet the plugins in this module hasn't been
+# registered yet
 
 from _delb.plugins import plugin_manager
 from _delb.plugins.core_loaders import text_loader

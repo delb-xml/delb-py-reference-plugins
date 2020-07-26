@@ -1,8 +1,8 @@
-# note that nothing is imported from the top-level delb module as it would trigger
-# the loading of plugins, yet the plugins in this module hasn't been registered yet
+# note that nothing is imported from the top-level `delb` module as it would
+# trigger the loading of plugins, yet the plugins in this module hasn't been
+# registered yet
 
 from _delb.plugins import plugin_manager, DocumentExtensionHooks
-from _delb.utils import first
 
 
 @plugin_manager.register_document_extension
@@ -27,6 +27,6 @@ class TEIHeaderProperties:
 
     @property
     def title(self):
-        return first(
-            self.document.css_select("teiHeader fileDesc titleStmt title")
-        ).full_text.strip()
+        return self.document.css_select(
+            "teiHeader fileDesc titleStmt title"
+        ).first.full_text.strip()

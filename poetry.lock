@@ -28,10 +28,11 @@ description = "A library that provides an ergonomic model for XML encoded text d
 name = "delb"
 optional = false
 python-versions = ">=3.6,<4.0"
-version = "0.2b5"
+version = "0.2"
 
 [package.dependencies]
 cssselect = "*"
+fastcache = ">=1.1.0,<2.0.0"
 lxml = "*"
 setuptools = "*"
 
@@ -41,6 +42,14 @@ version = ">=2.21,<3.0"
 
 [package.extras]
 https-loader = ["requests (>=2.21,<3.0)"]
+
+[[package]]
+category = "main"
+description = "C implementation of Python 3 functools.lru_cache"
+name = "fastcache"
+optional = false
+python-versions = "*"
+version = "1.1.0"
 
 [[package]]
 category = "main"
@@ -88,7 +97,7 @@ description = "HTTP library with thread-safe connection pooling, file post, and 
 name = "urllib3"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
-version = "1.25.9"
+version = "1.25.10"
 
 [package.extras]
 brotli = ["brotlipy (>=0.6.0)"]
@@ -96,7 +105,7 @@ secure = ["certifi", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "pyOpenSSL (>=0
 socks = ["PySocks (>=1.5.6,<1.5.7 || >1.5.7,<2.0)"]
 
 [metadata]
-content-hash = "3a139f59482b73e351211784e868898d388020ab440d8eb4a488b16d91afde62"
+content-hash = "caf1d1f5395062f5f9bf28530180c7e9423e34127e00354c16f78a915bd7678e"
 python-versions = "^3.6"
 
 [metadata.files]
@@ -113,8 +122,11 @@ cssselect = [
     {file = "cssselect-1.1.0.tar.gz", hash = "sha256:f95f8dedd925fd8f54edb3d2dfb44c190d9d18512377d3c1e2388d16126879bc"},
 ]
 delb = [
-    {file = "delb-0.2b5-py3-none-any.whl", hash = "sha256:830b8a2ef5fe246aa59228804b9cc8b344e7d978ab5a6a06b1f9bd766615ce1c"},
-    {file = "delb-0.2b5.tar.gz", hash = "sha256:763904bf9209f4dd48472f78ee4f00fb38cf81ab4e8b120fd50f351935f6aabb"},
+    {file = "delb-0.2-py3-none-any.whl", hash = "sha256:e6b478d5007c1498fab1c4675f5255722133ca60b5295702c527a3c1dfb8fbce"},
+    {file = "delb-0.2.tar.gz", hash = "sha256:099e0ed0ab7f879cc1c6ecccd0ff99e7728113835d3a881b9aeb38c83f076e66"},
+]
+fastcache = [
+    {file = "fastcache-1.1.0.tar.gz", hash = "sha256:6de1b16e70335b7bde266707eb401a3aaec220fb66c5d13b02abf0eab8be782b"},
 ]
 idna = [
     {file = "idna-2.10-py2.py3-none-any.whl", hash = "sha256:b97d804b1e9b523befed77c48dacec60e6dcb0b5391d57af6a65a312a90648c0"},
@@ -154,6 +166,6 @@ requests = [
     {file = "requests-2.24.0.tar.gz", hash = "sha256:b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"},
 ]
 urllib3 = [
-    {file = "urllib3-1.25.9-py2.py3-none-any.whl", hash = "sha256:88206b0eb87e6d677d424843ac5209e3fb9d0190d0ee169599165ec25e9d9115"},
-    {file = "urllib3-1.25.9.tar.gz", hash = "sha256:3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"},
+    {file = "urllib3-1.25.10-py2.py3-none-any.whl", hash = "sha256:e7983572181f5e1522d9c98453462384ee92a0be7fac5f1413a1e35c56cc0461"},
+    {file = "urllib3-1.25.10.tar.gz", hash = "sha256:91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a"},
 ]
