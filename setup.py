@@ -12,7 +12,7 @@ setup(
     entry_points={
         "delb": [
             "custom-loader = delb_reference_plugins.custom_loader",
-            "header-properties = " "delb_reference_plugins.tei_header_properties",
+            "tei-header-properties = delb_reference_plugins.tei_header_properties",
         ]
     },
     packages=["delb_reference_plugins"],
