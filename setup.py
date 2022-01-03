@@ -16,5 +16,5 @@ setup(
         ]
     },
     packages=["delb_reference_plugins"],
-    install_requires=["delb==0.2[https-loader]"],
+    install_requires=["delb[https-loader]==0.3b5"],
 )
