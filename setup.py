@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     long_description="A demonstrational package to https://delb.readthedocs.io/en/latest/extending.html",
     name="delb-reference-plugins",
-    version="0.3",
+    version="0.3.1",
     description="A package with spare non-sense plugins for delb as developer's reference.",
     python_requires=">=3.6.0",
     author="Frank Sachsenheim",
