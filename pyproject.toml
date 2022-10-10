@@ -1,18 +1,15 @@
 [build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
 
-[tool.poetry]
+[project]
 name = "delb-reference-plugins"
 version = "0.3.2"  # this shall match the delb version it relates to
 description = "A package with spare non-sense plugins for delb as developer's reference."
-authors = ["Frank Sachsenheim <funkyfuture@riseup.net>"]
-license = "AGPL-3.0"
+authors = [{name = "Frank Sachsenheim"}]
+license = {text = "AGPL-3.0-only"}
+dependencies = ["delb[https-loader]==0.3.0"]
 
-[tool.poetry.dependencies]
-python = "^3.7"
-delb = {version = "~0.3", extras = ["https-loader"]}
-
-[tool.poetry.plugins.delb]
+[project.entry-points.delb]
 custom-loader = "delb_reference_plugins.custom_loader"
 header-properties = "delb_reference_plugins.tei_header_properties"
