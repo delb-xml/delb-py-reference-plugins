@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "delb-reference-plugins"
-version = "0.4.0"  # this shall match the delb version it relates to
+version = "0.4.0rc0"  # this shall match the delb version it relates to
 description = "A package with spare non-sense plugins for delb as developer's reference."
 authors = [{name = "Frank Sachsenheim"}]
 license = {text = "AGPL-3.0-only"}
