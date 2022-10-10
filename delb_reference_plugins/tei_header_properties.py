@@ -4,15 +4,14 @@
 from types import SimpleNamespace
 from typing import Any, Dict
 
-from _delb.plugins import plugin_manager, DocumentMixinHooks
+from _delb.plugins import DocumentMixinBase
 
 
 # TODO a simple storage-related plugin makes more sense in light of the sublass.py
 #      contained example
 
 
-@plugin_manager.register_document_extension
-class TEIHeader(DocumentMixinHooks):
+class TEIHeader(DocumentMixinBase):
     @classmethod
     def _init_config(cls, config: SimpleNamespace, kwargs: Dict[str, Any]):
         config.tei_header = SimpleNamespace(
