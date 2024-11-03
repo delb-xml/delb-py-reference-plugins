@@ -1,6 +1,9 @@
 # note that nothing is imported from the top-level `delb` module as it would
 # trigger the loading of plugins, yet the plugins in this module hasn't been
 # registered yet
+
+from __future__ import annotations
+
 from types import SimpleNamespace
 from typing import Any, Dict
 

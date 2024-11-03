@@ -2,6 +2,8 @@
 # trigger the loading of plugins, yet the plugins in this module hasn't been
 # registered yet
 
+from __future__ import annotations
+
 from _delb.plugins import plugin_manager
 from _delb.plugins.core_loaders import text_loader
 from _delb.typing import LoaderResult
