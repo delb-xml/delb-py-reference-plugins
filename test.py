@@ -1,4 +1,4 @@
-import pkg_resources
+from importlib import metadata
 from types import SimpleNamespace
 
 from _delb.nodes import TagNode
@@ -52,9 +52,11 @@ def test_subclass():
 
 
 if __name__ == "__main__":
+    # this isn't trying to import the package as it shall test that delb's loading of
+    # entrypoints works
     try:
-        pkg_resources.get_distribution("delb-reference-plugins")
-    except pkg_resources.DistributionNotFound:
+        metadata.metadata("delb-reference-plugins")
+    except metadata.PackageNotFoundError:
         print(
             "The package that includes the extensions must be installed in order to "
             "use these."
