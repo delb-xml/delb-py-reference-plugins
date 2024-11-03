@@ -1,8 +1,7 @@
 from importlib import metadata
 from types import SimpleNamespace
 
-from _delb.nodes import TagNode
-from delb import Document
+from delb import Document, TagNode
 
 
 OFFICE_NS = "urn:oasis:names:tc:opendocument:xmlns:office:1.0"
@@ -36,9 +35,17 @@ def test_header_properties():
     document = Document(
         "https://textgridlab.org/1.0/tgcrud-public/rest/textgrid:1265r.0/data"
     )
-
     assert document.tei_header.title == "Das erste dadaistische Manifest"
     assert document.tei_header.authors == ["Ball, Hugo"]
+
+    document.config.tei_header.yelling = True
+    assert document.tei_header.title == "DAS ERSTE DADAISTISCHE MANIFEST"
+
+    document = Document(
+        "https://textgridlab.org/1.0/tgcrud-public/rest/textgrid:1265r.0/data",
+        tei_header_yelling=True
+    )
+    assert document.tei_header.title == "DAS ERSTE DADAISTISCHE MANIFEST"
 
 
 def test_subclass():
