@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "delb-reference-plugins"
-version = "0.5-rc2"  # this shall match the delb version it relates to
+version = "0.5-rc3"  # this shall match the delb version it relates to
 description = "A package with spare non-sense plugins for delb as developer's reference."
 authors = [{name = "Frank Sachsenheim"}]
 license = {text = "AGPL-3.0-only"}
-dependencies = ["delb[https-loader]~=0.5-rc2"]
+dependencies = ["delb[https-loader]~=0.5-rc3"]
 
 [project.entry-points.delb]
 custom-loader = "delb_reference_plugins.custom_loader"
