@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import warnings
 from importlib import metadata
 from types import SimpleNamespace
 
@@ -20,7 +21,7 @@ class OpenDocumentText(Document):
             return False
 
         try:
-            return root.attributes[OFFICE_NS:"mimetype"] == ODT_MIMETYPE
+            return root.attributes[(OFFICE_NS, "mimetype")] == ODT_MIMETYPE
         except KeyError:
             return False
 
@@ -45,7 +46,7 @@ def test_header_properties():
 
     document = Document(
         "https://textgridlab.org/1.0/tgcrud-public/rest/textgrid:1265r.0/data",
-        tei_header_yelling=True
+        tei_header_yelling=True,
     )
     assert document.tei_header.title == "DAS ERSTE DADAISTISCHE MANIFEST"
 
@@ -71,6 +72,8 @@ if __name__ == "__main__":
             "use these."
         )
         raise SystemExit(1)
+
+    warnings.simplefilter("error")
 
     test_custom_loader()
     test_header_properties()

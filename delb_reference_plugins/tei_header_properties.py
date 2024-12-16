@@ -5,10 +5,16 @@
 from __future__ import annotations
 
 from types import SimpleNamespace
-from typing import Any, Dict
+from typing import Any, Dict, Final, TypedDict
 
 from _delb.plugins import DocumentMixinBase
 
+class NamespacesKWArgs(TypedDict):
+    namespaces: dict[str | None, str]
+
+
+TEI_NAMESPACE: Final = "http://www.tei-c.org/ns/1.0"
+TEI: Final[NamespacesKWArgs] = {"namespaces": {None: TEI_NAMESPACE}}
 
 # TODO a simple storage-related plugin makes more sense in light of the sublass.py
 #      contained example
@@ -36,14 +42,14 @@ class TEIHeaderProperties:
         return [
             x.full_text
             for x in self.document.css_select(
-                "teiHeader fileDesc sourceDesc biblFull titleStmt author"
+                "teiHeader fileDesc sourceDesc biblFull titleStmt author", **TEI
             )
         ]
 
     @property
     def title(self):
         result = self.document.css_select(
-            "teiHeader fileDesc titleStmt title"
+            "teiHeader fileDesc titleStmt title", **TEI
         ).first.full_text.strip()
         if self.document.config.tei_header.yelling:
             result = result.upper()
