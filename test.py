@@ -4,7 +4,8 @@ import warnings
 from importlib import metadata
 from types import SimpleNamespace
 
-from delb import Document, TagNode
+from delb import Document
+from delb.typing import TagNodeType
 
 
 OFFICE_NS = "urn:oasis:names:tc:opendocument:xmlns:office:1.0"
@@ -13,7 +14,7 @@ ODT_MIMETYPE = "application/vnd.oasis.opendocument.text"
 
 class OpenDocumentText(Document):
     @staticmethod
-    def __class_test__(root: TagNode, config: SimpleNamespace) -> bool:
+    def __class_test__(root: TagNodeType, config: SimpleNamespace) -> bool:
         if root.namespace != OFFICE_NS:
             return False
 
@@ -78,4 +79,8 @@ if __name__ == "__main__":
     test_custom_loader()
     test_header_properties()
     test_subclass()
+
+    # TODO provide and test a custom XPath function example
+    # TODO provide and test a parser adapter example
+
     print("Everything worked as expected.")
