@@ -5,6 +5,7 @@ from importlib import metadata
 from types import SimpleNamespace
 
 from delb import Document
+from delb.parser import ParserOptions
 from delb.typing import TagNodeType
 
 
@@ -33,6 +34,15 @@ def test_custom_loader():
 
     assert root.local_name == "document"
     assert root["url"] == url
+
+
+def test_parser_adapter():
+    document = Document(
+        "<root>text</root>", parser_options=ParserOptions(preferred_parsers="dumbo")
+    )
+    assert document.root.local_name == "root"
+    assert len(document.root) == 1
+    assert document.root[0].content == "TEXT"
 
 
 def test_tei_header_properties():
@@ -82,10 +92,9 @@ if __name__ == "__main__":
     warnings.simplefilter("error")
 
     test_custom_loader()
+    test_parser_adapter()
     test_tei_header_properties()
     test_subclass()
     test_xpath_function()
-
-    # TODO provide and test a parser adapter example
 
     print("Everything worked as expected.")
