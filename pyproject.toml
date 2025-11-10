@@ -13,3 +13,4 @@ dependencies = ["delb[web-loader]~=0.6-rc0"]
 [project.entry-points.delb]
 custom-loader = "delb_reference_plugins.custom_loader"
 header-properties = "delb_reference_plugins.tei_header_properties"
+xpath-function = "delb_reference_plugins.xpath_function"

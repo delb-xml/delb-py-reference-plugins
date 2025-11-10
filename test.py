@@ -35,7 +35,7 @@ def test_custom_loader():
     assert root["url"] == url
 
 
-def test_header_properties():
+def test_tei_header_properties():
     document = Document(
         "https://textgridlab.org/1.0/tgcrud-public/rest/textgrid:1265r.0/data"
     )
@@ -62,6 +62,11 @@ def test_subclass():
     assert not isinstance(document, OpenDocumentText)
 
 
+def test_xpath_function():
+    document = Document("<root><node a='x'/><node a='X'/><node a='Y'/></root>")
+    assert document.xpath("//*[is-lower(@a)='x']").size == 2
+
+
 if __name__ == "__main__":
     # this isn't trying to import the package as it shall test that delb's loading of
     # entrypoints works
@@ -77,10 +82,10 @@ if __name__ == "__main__":
     warnings.simplefilter("error")
 
     test_custom_loader()
-    test_header_properties()
+    test_tei_header_properties()
     test_subclass()
+    test_xpath_function()
 
-    # TODO provide and test a custom XPath function example
     # TODO provide and test a parser adapter example
 
     print("Everything worked as expected.")
