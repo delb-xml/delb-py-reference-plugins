@@ -9,6 +9,7 @@ from typing import Any, Dict, Final, TypedDict
 
 from _delb.plugins import DocumentMixinBase
 
+
 class NamespacesKWArgs(TypedDict):
     namespaces: dict[str | None, str]
 
